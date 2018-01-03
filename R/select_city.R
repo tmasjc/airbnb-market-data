@@ -7,27 +7,50 @@ airbnb_city <- function() {
     # get what is in the data directory
     city_list <- dir(path = "data/") %>% gsub(pattern = "_summary\\.RDS$", replacement = "")
     
-    # make path list of respective city RDS 
-    dat <- sapply(X = city_list, FUN = sprintf, fmt = "data/%s_summary.RDS") %>% 
-        lapply(FUN = readRDS) # read data
+    # make path list of respective city RDS, and then read data
+    cities <- sapply(X = city_list, FUN = sprintf, fmt = "data/%s_summary.RDS") %>% 
+        lapply(FUN = readRDS) 
     
     # assign names to be aligned with input selector
-    names(dat) <- toupper(city_list)
+    names(cities) <- toupper(city_list)
     
     ui <- miniPage(
         gadgetTitleBar("Airbnb Rental Market"),
         miniContentPanel(
-            selectInput("city", label = "Choose A City:", choices = toupper(city_list)),
+            selectInput("city", label = "Select A City : ", choices = toupper(city_list), selected = "BERLIN"),
+            uiOutput("subcity"),
             tableOutput("head")
         )
     )
     
     server <- function(input, output, session) {
         
-        # select city from list of data frames
-        cityInput <- reactive({ dat[[input$city]][1:3] })
+        # select from a list of data frames
+        selectCity <- reactive({ 
+            cities[[input$city]] 
+        })
         
-        output$head <- renderTable({ head(cityInput()) })
+        # neighbourhood (subcity) selection
+        subcity <- reactive({ 
+            unique(selectCity()[["neighbourhood"]]) 
+        })
+        
+        # generate subcity selection based on selected city (dynamic UI)
+        output$subcity <- renderUI({
+            tagList(
+                selectInput("neighbourhood", label = "Select A Neighbourhood : ", choices = list("All" = c("--", subcity())))
+            )
+        })
+        
+        # produce head of selected area
+        output$head <- renderTable({
+            if(input$neighbourhood == "--"){
+                head(selectCity())[1:3]
+            }else{
+                (selectCity() %>% filter(neighbourhood == input$neighbourhood) %>% head())[1:3]
+            }
+        })
+    
     }
     
     runGadget(ui, server)
