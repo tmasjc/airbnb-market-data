@@ -17,8 +17,8 @@ airbnb_city <- function() {
     ui <- miniPage(
         gadgetTitleBar("Airbnb Rental Market"),
         miniContentPanel(
-            selectInput("city", label = "Select A City : ", choices = toupper(city_list), selected = "BERLIN"),
-            uiOutput("subcity"),
+            selectInput("city", label = "Select A City : ", choices = toupper(c("", city_list))),
+            selectInput("neighbour", label = "Select A Neighbourhood : ", character(0)),
             tableOutput("head")
         )
     )
@@ -27,28 +27,24 @@ airbnb_city <- function() {
         
         # select from a list of data frames
         selectCity <- reactive({ 
+            # prevent eror from initial empty value 
+            req(input$city)
             cities[[input$city]] 
         })
         
-        # neighbourhood (subcity) selection
-        subcity <- reactive({ 
+        # neighbourhood selection
+        neighbour <- reactive({ 
             unique(selectCity()[["neighbourhood"]]) 
         })
         
-        # generate subcity selection based on selected city (dynamic UI)
-        output$subcity <- renderUI({
-            tagList(
-                selectInput("neighbourhood", label = "Select A Neighbourhood : ", choices = list("All" = c("--", subcity())))
-            )
+        # generate neighbourhood selection based on selected city (dynamic UI)
+        observe({
+            updateSelectInput(session, "neighbour", choices = c("", neighbour()))
         })
         
         # produce head of selected area
         output$head <- renderTable({
-            if(input$neighbourhood == "--"){
-                head(selectCity())[1:3]
-            }else{
-                (selectCity() %>% filter(neighbourhood == input$neighbourhood) %>% head())[1:3]
-            }
+            (selectCity() %>% filter(neighbourhood == input$neighbour) %>% head())[1:3]
         })
     
     }
