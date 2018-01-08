@@ -31,7 +31,10 @@ plot_leaflet <- function() {
             leaflet(vienna) %>% 
                 addProviderTiles(providers$CartoDB.Positron) %>% 
                 fitBounds(lng1 = ~min(longitude), lat1 = ~min(latitude), lng2 = ~max(longitude), lat2 = ~max(latitude)) %>% 
-                addLegend("bottomright", pal = pal, values = ~room_type, title = "Room Type")
+                addLegend("bottomright", pal = pal, values = ~room_type, title = "Room Type") %>% 
+                addEasyButton(easyButton(
+                    icon="fa-arrows-alt", title="Reset Zoom",
+                    onClick=JS("function(btn, map){ map.setZoom(14); }")))
         })
         
         # Subset data based on user selection
@@ -43,10 +46,8 @@ plot_leaflet <- function() {
         # Prepare neighbourhood bounding lng and lat for Leaflet proxy
         bounds <- reactive({
             list(
-                minLng = min(filteredData()$longitude),
-                maxLng = max(filteredData()$longitude),
-                minLat = min(filteredData()$latitude),
-                maxLat = max(filteredData()$latitude)
+                lng = range(filteredData()$longitude),
+                lat = range(filteredData()$latitude)
             )
         })
         
@@ -56,7 +57,7 @@ plot_leaflet <- function() {
                 clearMarkers() %>% 
                 addCircleMarkers(lng = ~longitude, lat = ~latitude, color = ~pal(room_type), radius = 5, stroke = FALSE, fillOpacity = 0.5) %>% 
                 # Fit bounding box based on neighbourhood
-                fitBounds(lng1 = bounds()[[1]], lng2 = bounds()[[2]], lat1 = bounds()[[3]], lat2 = bounds()[[4]])
+                fitBounds(lng1 = bounds()$lng[1], lng2 = bounds()$lng[2], lat1 = bounds()$lat[1], lat2 = bounds()$lat[2])
         })
         
         # Calculate total of respective room type (within bounding box)
@@ -76,9 +77,6 @@ plot_leaflet <- function() {
                 summarise("Total" = n())
             
         })
-        
-        
-        
     }
     
     runGadget(ui, server)
