@@ -2,7 +2,7 @@
 library(ggplot2)
 library(dplyr)
 library(shiny)
-library(shinydashboard)
+library(shinythemes)
 library(leaflet)
 library(RColorBrewer)
 library(plotly)
