@@ -160,6 +160,9 @@ server <- function(input, output, session){
     # Data points for price density and listings per host analysis
     rv <- reactive({
         
+        # ** Require this to trigger first selected city  **
+        input$map_bounds
+        
         # If subcity (area) is not selected, fall back to city data frame
         if(!input$area == ""){
             bounded_area()
