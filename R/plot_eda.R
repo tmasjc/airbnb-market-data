@@ -1,10 +1,11 @@
+library(dplyr)
 library(shiny)
 library(miniUI)
 library(ggplot2)
 library(plotly)
 
 # load data
-berlin <- readRDS("Data/berlin_summary.RDS")
+berlin <- readRDS("Data/berlin.RDS")
 
 # create some options to choose from
 nb_list <- berlin$neighbourhood_group %>% unique()

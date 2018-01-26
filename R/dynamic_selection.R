@@ -1,3 +1,4 @@
+library(dplyr)
 library(shiny)
 library(miniUI)
 library(ggplot2)
@@ -5,10 +6,10 @@ library(ggplot2)
 airbnb_city <- function() {
     
     # get what is in the data directory
-    city_list <- dir(path = "data/") %>% gsub(pattern = "*_summary\\.RDS$", replacement = "")
+    city_list <- dir(path = "Data/") %>% gsub(pattern = "*\\.RDS$", replacement = "")
     
     # make path list of respective city RDS, and then read data
-    cities <- sapply(X = city_list, FUN = sprintf, fmt = "data/%s_summary.RDS") %>% 
+    cities <- sapply(X = city_list, FUN = sprintf, fmt = "Data/%s.RDS") %>% 
         lapply(FUN = readRDS) 
     
     # assign names to be aligned with input selector

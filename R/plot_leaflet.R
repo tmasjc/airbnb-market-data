@@ -1,3 +1,4 @@
+library(dplyr)
 library(shiny)
 library(leaflet)
 library(RColorBrewer)
@@ -5,7 +6,7 @@ library(miniUI)
 
 plot_leaflet <- function() {
     
-    vienna <- readRDS("Data/vienna_summary.RDS")
+    vienna <- readRDS("Data/vienna.RDS")
     
     # For dropdown choices
     nb <- unique(vienna$neighbourhood)
