@@ -2,10 +2,16 @@ source("header.R")
 
 
 # Load Data ---------------------------------------------------------------
-vienna <- readRDS("Data/vienna_summary.RDS")
+vienna <- readRDS("Data/vienna.RDS")
+area <- vienna$neighbourhood %>% unique()
 
-# For dropdown choices
-area <- unique(vienna$neighbourhood)
+# Get what is in the 'Data' directory
+city_list <- list.files(path = "Data/") %>% gsub(pattern = "*\\.(RDS|csv)$", replacement = "")
+
+# Combine all data frames into a list
+cities <- list.files(path = "Data", full.names = TRUE) %>% lapply(FUN = readRDS)
+names(cities) <- toupper(city_list)
+
 
 # Helper Function ---------------------------------------------------------
 
@@ -14,7 +20,9 @@ pal <- colorFactor(brewer.pal(3, "Set1"), domain = vienna$room_type)
 
 # Modify ggplot theme
 old <- theme_set(theme_light() + 
-                     theme(legend.position = "none", axis.title = element_text(family = "mono")))
+                     theme(legend.position = "none", 
+                           axis.title = element_text(family = "mono"),
+                           axis.text = element_text(colour = "darkgray")))
 
 # UI ----------------------------------------------------------------------
 
@@ -43,7 +51,8 @@ ui <- fillPage(
             h4("Hello World", style = "text-align: center;"),
             sidebarLayout(
                 sidebarPanel(width = 2, 
-                       selectInput("area", label = "Choose A Neighbourhood", choices = c("", area)),
+                       selectInput("city", label = "Select A City", choices = c("", toupper(city_list))),
+                       selectInput("area", label = "Filter By Area", character(0)),
                        verbatimTextOutput("roomInBounds")),
                 mainPanel(width = 10,
                     column(6, plotlyOutput("price")),
@@ -58,11 +67,18 @@ ui <- fillPage(
 
 server <- function(input, output, session){
     
+    # Select a city from a list of cities
+    selected_city <- reactive({
+        req(input$city)
+        cities[[input$city]]
+    })
+    
     # Geography concentration goes here
     output$map <- renderLeaflet({
         
         # Create a base map
-        leaflet(vienna) %>% 
+        selected_city() %>% 
+            leaflet() %>% 
             addProviderTiles(providers$CartoDB.Positron) %>% 
             fitBounds(lng1 = ~min(longitude), lat1 = ~min(latitude), lng2 = ~max(longitude), lat2 = ~max(latitude)) %>% 
             addLegend("bottomleft", pal = pal, values = ~room_type, title = "Room Type") %>% 
@@ -73,17 +89,35 @@ server <- function(input, output, session){
             )
     })
     
-    # Subset neighbourhood, update when selection changes
-    df <- reactive({
+    # Sublevel of city
+    area <- reactive({ 
+        # some cities have a larger subcity cluster called neightbourhood_group
+        if(sum(is.na(selected_city()[["neighbourhood_group"]] > 100))){
+            unique(selected_city()[["neighbourhood"]])
+        }else{
+            unique(selected_city()[["neighbourhood_group"]])
+        }
+    })
+    
+    # Generate neighbourhood selection based on selected area (dynamic UI)
+    observe({
+        updateSelectInput(session, "area", choices = c("", area()))
+    })
+    
+    # A subset of city data frame based on selected area
+    area_df <- reactive({
+        
         req(input$area)
-        subset(vienna, neighbourhood == input$area)
+        
+        selected_city() %>% filter(neighbourhood == input$area | neighbourhood_group == input$area)
+        
     })
     
     # Prepare neighbourhood bounding lng and lat for Leaflet proxy
     bounds <- reactive({
         list(
-            lng = range(df()$longitude),
-            lat = range(df()$latitude)
+            lng = range(area_df()$longitude),
+            lat = range(area_df()$latitude)
         )
     })
     
@@ -98,13 +132,13 @@ server <- function(input, output, session){
         lngRng <- range(bounds$east, bounds$west)
         
         # Filter area given boundary
-        subset(df(), latitude >= latRng[1] & latitude <= latRng[2] & longitude >= lngRng[1] & longitude <= lngRng[2])
+        subset(area_df(), latitude >= latRng[1] & latitude <= latRng[2] & longitude >= lngRng[1] & longitude <= lngRng[2])
         
     })
     
     # Leaflet proxy to modify map aspect (add markers here)
     observeEvent(input$area, {
-        leafletProxy("map", data = df()) %>% 
+        leafletProxy("map", data = area_df()) %>% 
             clearMarkers() %>% 
             addCircleMarkers(lng = ~longitude, lat = ~latitude, color = ~pal(room_type), radius = 5, stroke = FALSE, fillOpacity = 0.5) %>% 
             # Fit bounding box based on neighbourhood
@@ -116,43 +150,69 @@ server <- function(input, output, session){
         
         # Total count by room type
         #with(bounded_area(), ftable("Room Type" = room_type))
-        nrow(bounded_area())
+        #nrow(bounded_area())
+        input$area == ""
+            
         
     })
     
-    ## Preventing frequent invalidation signals 
-    bounded_area_d <- bounded_area %>% debounce(500)
+    
+    # Data points for price density and listings per host analysis
+    rv <- reactive({
+        
+        # If subcity (area) is not selected, fall back to city data frame
+        if(!input$area == ""){
+            bounded_area()
+        }else{
+            selected_city()
+        }
+        
+    })
+    
+    # Slow down reactive expression to prevent invalidation when switching city
+    rv_d <- rv %>% debounce(750)
     
     # Price distribution goes here
     output$price <- renderPlotly({
         
-        p <- bounded_area_d() %>% 
-            # filter right tail outlier using Tukey's IQR method
-            filter(price < (1.5 * IQR(price) + quantile(price, .75))) %>% 
-            ggplot(aes(price, fill = room_type, col = room_type, text = "")) +
-            geom_density(alpha = 0.6) + 
-            labs(x = "Price", y = "Kernel Density Estimation")
+        # Prevent invalidation when switching from area to area (further investigation required)
+        withProgress(message = "Rendering...", value = 0.5, {
+            p <- rv_d() %>% 
+                # filter right tail outlier using Tukey's IQR method
+                filter(price < (1.5 * IQR(price) + quantile(price, .75))) %>% 
+                ggplot(aes(price, fill = room_type, col = room_type, text = "")) +
+                geom_density(alpha = 0.6) + 
+                labs(x = "Price", y = "Kernel Density Estimation")
+            
+            setProgress(1)
+
+        })
         
         ggplotly(p, tooltip = c("text"))
+        
     })
     
     # Listings per host goes here
     output$host <- renderPlotly({
         
-        p <- bounded_area_d() %>% 
-            group_by(host_id, host_name) %>% 
-            summarise(n = n_distinct(id)) %>% 
-            # Do a count on n (how many hosts own 3, 4..n houses?)
-            ungroup() %>% count(n) %>% 
-            filter(n > 1) %>% 
-            ggplot(aes(n, nn, text = paste("# Listings:", n, "\n# Hosts:", nn))) + 
-            # geom_hline(aes(yintercept = 0), lty = 3) +
-            geom_bar(stat = 'identity', width = 0.1, fill = "skyblue", alpha = 0.6) + 
-            geom_point(size = 3, col = "royalblue") +
-            scale_x_continuous(breaks = scales::pretty_breaks(n = 5)) +
-            scale_y_continuous(breaks = scales::pretty_breaks(n = 10)) +
-            coord_flip() + 
-            labs(x = "# Listings", y = "# Hosts with y listings")
+        withProgress(message = "Rendering...", value = 0,5, {
+            p <- rv_d() %>% 
+                group_by(host_id, host_name) %>% 
+                summarise(n = n_distinct(id)) %>% 
+                # Do a count on n (how many hosts own 3, 4..n houses?)
+                ungroup() %>% count(n) %>% 
+                filter(n > 1) %>% 
+                ggplot(aes(n, nn, text = paste("# Listings:", n, "\n# Hosts:", nn))) + 
+                # geom_hline(aes(yintercept = 0), lty = 3) +
+                geom_bar(stat = 'identity', width = 0.1, fill = "skyblue", alpha = 0.6) + 
+                geom_point(size = 3, col = "royalblue") +
+                scale_x_continuous(breaks = scales::pretty_breaks(n = 5)) +
+                scale_y_continuous(breaks = scales::pretty_breaks(n = 10)) +
+                coord_flip() + 
+                labs(x = "# Listings", y = "# Hosts with y listings")    
+            
+            setProgress(1)
+        })
         
         ggplotly(p, tooltip = c("text"))
 
