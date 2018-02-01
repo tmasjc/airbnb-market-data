@@ -60,7 +60,7 @@ is_valid <- function(city = NULL){
         if(tolower(city) %in% e$cities$City){
             ct <- city
         }else{
-            return(sprintf("City ‘%s’ not found.", city))
+            stop(sprintf("City ‘%s’ not found.", city))
         }
     }
     
@@ -68,13 +68,11 @@ is_valid <- function(city = NULL){
         if(city %in% e$cities$Index){
             ct <- e$cities$City[city]
         }else{
-            return(sprintf("Index %s is out of bound.", as.character(city)))
+            stop(sprintf("Index %s is out of bound.", as.character(city)))
         }
     }
     
     if(!is.null(ct)){ return(ct) }
-    
-    print("Request cannot be proceeded. Check your argument.")
     
 }
 
@@ -92,26 +90,43 @@ get_download_urls <- function(city){
     
 }
 
+# List available dates from data source
+list_date <- function(city){
+    
+    df <- is_valid(city) %>% get_full_info() %>% pull(dmy) %>% unique() %>% sort(decreasing = TRUE) %>% as.data.frame()
+    
+    df <- df %>% cbind(i = 1:nrow(df))
+    
+    print.data.frame(df, row.names = FALSE)
+    
+}
+
 # Get description of a particular city data
 get_full_info <- function(city){
     
     ref <- which(e$cities$City == is_valid(city)) %>% e$table_css[[.]]
     
-    inf <- src %>% html_nodes(css = gsub(ref, pattern = '\\s+', replacement = ".")) %>% html_table() %>% bind_rows()
+    df <- src %>% html_nodes(css = gsub(ref, pattern = '\\s+', replacement = ".")) %>% html_table() %>% bind_rows()
     
-    inf %>% cbind(url = get_download_urls(city))
+    df <- df %>% select(-Description) %>% mutate(dmy = as.Date(`Date Compiled`, format = "%d %b, %Y"))
+    
+    df %>% cbind(url = get_download_urls(city))
     
 }
 
 # Download data
-download_data <- function(city, i = 1, format = "csv", method = "auto"){
+download_data <- function(city, date.index = 1, format = "listings.csv", file.name = "", file.ext = ".csv", method = "auto"){
     
     # retrieve url
-    url <- is_valid(city) %>% get_full_info() %>% filter(`File Name` == "listings.csv") %>% top_n(wt = `Date Compiled`, n = 1) %>% pull(url) %>% as.character()
-        
+    url <- city %>% get_full_info() %>% 
+                filter(`File Name` == format) %>% 
+                arrange(-as.numeric(dmy)) %>% 
+                pull(url) %>% 
+                as.character()
+    
     # start downloading
     print("Downloading data...")
-    url %>% download.file(destfile = paste0("Data/", city, ".csv"), method = "auto")
+    url[date.index] %>% download.file(destfile = paste0("Data/", file.name, file.ext), method = method)
     
 }
 

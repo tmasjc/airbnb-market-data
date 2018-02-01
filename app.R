@@ -2,21 +2,19 @@ source("header.R")
 
 
 # Load Data ---------------------------------------------------------------
-vienna <- readRDS("Data/vienna.RDS")
-area <- vienna$neighbourhood %>% unique()
 
 # Get what is in the 'Data' directory
-city_list <- list.files(path = "Data/") %>% gsub(pattern = "*\\.(RDS|csv)$", replacement = "")
+city_list <- list.files(path = "Data/") %>% gsub(pattern = "*\\.csv$", replacement = "")
 
 # Combine all data frames into a list
-cities <- list.files(path = "Data", full.names = TRUE) %>% lapply(FUN = readRDS)
+cities <- list.files(path = "Data", full.names = TRUE) %>% lapply(FUN = read.csv, stringsAsFactors = FALSE)
 names(cities) <- toupper(city_list)
 
 
 # Helper Function ---------------------------------------------------------
 
 # For Leaflet's markers color
-pal <- colorFactor(brewer.pal(3, "Set1"), domain = vienna$room_type)
+pal <- colorFactor(brewer.pal(3, "Set1"), domain = cities[[1]]$room_type %>% unique())
 
 # Modify ggplot theme
 old <- theme_set(theme_light() + 
