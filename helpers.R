@@ -1,53 +1,66 @@
-#!/usr/local/bin/Rscript --vanilla
+# Set up new environment
+e <- new.env()
 
-library(dplyr)
-library(rvest)
-library(stringr)
+
+# Load Packages ----------------------------------------------------------
+
+load_packages <- function(){
+    
+    pkgs <- c("dplyr", "rvest", "stringr")
+    libs <- lapply(pkgs, library, character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE)
+    
+}
 
 
 # Extract XML -------------------------------------------------------------
 
 
-# Data source URL
-url <- "http://insideairbnb.com/get-the-data.html"
-
-# Test internet connection is available by extracting xml
-print("Extracting webpage... Please hold on...")
-
-src <- tryCatch(
-    read_html(url),
-    error = function(e) {
-        write(paste(Sys.time(), as.character(e)), "error_log.txt", append = TRUE)
-        print("Could not establish link with source. See error log.")
-        return(NULL)
+get_xml <- function(){
+    
+    # Data source URL
+    url <- "http://insideairbnb.com/get-the-data.html"
+    
+    # Test internet connection is available by extracting xml
+    print("Extracting webpage... Please hold on...")
+    
+    e$xml <- tryCatch(
+        read_html(url),
+        error = function(e) {
+            write(paste(Sys.time(), as.character(e)), "error_log.txt", append = TRUE)
+            print("Could not establish link with source. See error log.")
+            return(NULL)
+        }
+    )
+    
+    if(!is.null(e$xml)){
+        print("Obtained source successfully.")
+        write_xml(e$xml, "Cache/webpage.xml")
     }
-)
-
-if(!is.null(src)){
-    print("Obtained source successfully.")
+    
 }
 
 
 # Getting Metadata ------------------------------------------------------------
 
 
-# Initiate an empty vector to store city list if necessary
-e <- new.env()
-
-# City in full name
-e$city_full <- src %>% html_nodes(css = "h2") %>% html_text()    
-
-# Table CSS
-e$table_css <- src %>% html_nodes("table") %>% html_attrs()
-
-# Available cities
-e$cities <- lapply(e$table_css, FUN = str_extract, pattern = "\\s{1}([a-z]|-)*$") %>% str_trim() %>% as.data.frame()
-names(e$cities) <- "City"
-e$cities <- e$cities %>% cbind(Index = 1:nrow(.))
-
+get_metadata <- function(){
+    
+    # City in full name
+    e$city_full <- e$xml %>% html_nodes(css = "h2") %>% html_text()    
+    
+    # Table CSS
+    e$table_css <- e$xml %>% html_nodes("table") %>% html_attrs()
+    
+    # Available cities
+    e$cities <- lapply(e$table_css, FUN = str_extract, pattern = "\\s{1}([a-z]|-)*$") %>% str_trim() %>% as.data.frame()
+    names(e$cities) <- "City"
+    e$cities <- e$cities %>% cbind(Index = 1:nrow(.))
+    
+}
 
 
 # Helper Functions ---------------------------------------------------------------
+
 
 # Check if given city can be found
 is_valid <- function(city = NULL){
@@ -86,7 +99,7 @@ get_city_list <- function(){
 # Get data download urls
 get_download_urls <- function(city){
     
-    src %>% html_nodes(paste0(".", city, " a")) %>% html_attr("href")
+    e$xml %>% html_nodes(paste0(".", city, " a")) %>% html_attr("href")
     
 }
 
@@ -106,7 +119,7 @@ get_full_info <- function(city){
     
     ref <- which(e$cities$City == is_valid(city)) %>% e$table_css[[.]]
     
-    df <- src %>% html_nodes(css = gsub(ref, pattern = '\\s+', replacement = ".")) %>% html_table() %>% bind_rows()
+    df <- e$xml %>% html_nodes(css = gsub(ref, pattern = '\\s+', replacement = ".")) %>% html_table() %>% bind_rows()
     
     df <- df %>% select(-Description) %>% mutate(dmy = as.Date(`Date Compiled`, format = "%d %b, %Y"))
     
@@ -115,23 +128,17 @@ get_full_info <- function(city){
 }
 
 # Download data
-download_data <- function(city, date.index = 1, format = "listings.csv", file.name = "", file.ext = ".csv", method = "auto"){
+download_data <- function(city, date.index = 1, method = "auto"){
     
     # retrieve url
     url <- city %>% get_full_info() %>% 
-                filter(`File Name` == format) %>% 
+                filter(`File Name` == "listings.csv") %>% 
                 arrange(-as.numeric(dmy)) %>% 
                 pull(url) %>% 
                 as.character()
     
     # start downloading
     print("Downloading data...")
-    url[date.index] %>% download.file(destfile = paste0("Data/", file.name, file.ext), method = method)
+    tryCatch(url[date.index] %>% download.file(destfile = paste0("Data/", city, ".csv"), method = method), finally = "Success")
     
 }
-
-
-
-
-
-
