@@ -70,7 +70,10 @@ is_valid <- function(city = NULL){
     }
     
     if(is.character(city)){
-        if(tolower(city) %in% e$cities$City){
+        
+        city <- tolower(city)
+        
+        if(city %in% e$cities$City){
             ct <- city
         }else{
             stop(sprintf("City ‘%s’ not found.", city))
@@ -78,6 +81,7 @@ is_valid <- function(city = NULL){
     }
     
     if(is.numeric(city)){
+        
         if(city %in% e$cities$Index){
             ct <- e$cities$City[city]
         }else{
@@ -89,28 +93,22 @@ is_valid <- function(city = NULL){
     
 }
 
-# Return all available cities
-get_city_list <- function(){
-    
-    e$city_full
-    
-}
-
 # Get data download urls
 get_download_urls <- function(city){
     
-    e$xml %>% html_nodes(paste0(".", city, " a")) %>% html_attr("href")
+    e$xml %>% html_nodes(paste0(".", is_valid(city), " a")) %>% html_attr("href")
     
 }
 
 # List available dates from data source
-list_date <- function(city){
+get_available_date <- function(city){
     
-    df <- is_valid(city) %>% get_full_info() %>% pull(dmy) %>% unique() %>% sort(decreasing = TRUE) %>% as.data.frame()
+    ymd <- is_valid(city) %>% get_full_info() %>% pull(ymd) %>% unique() %>% sort(decreasing = TRUE) 
     
-    df <- df %>% cbind(i = 1:nrow(df))
+    df <- cbind(rep(city, length(ymd)), as.character(ymd), 1:length(ymd)) %>% as.data.frame()
     
-    print.data.frame(df, row.names = FALSE)
+    # print.data.frame(df, row.names = FALSE)
+    df
     
 }
 
@@ -121,7 +119,7 @@ get_full_info <- function(city){
     
     df <- e$xml %>% html_nodes(css = gsub(ref, pattern = '\\s+', replacement = ".")) %>% html_table() %>% bind_rows()
     
-    df <- df %>% select(-Description) %>% mutate(dmy = as.Date(`Date Compiled`, format = "%d %b, %Y"))
+    df <- df %>% select(-Description) %>% mutate(ymd = as.Date(`Date Compiled`, format = "%d %b, %Y"))
     
     df %>% cbind(url = get_download_urls(city))
     
@@ -133,12 +131,13 @@ download_data <- function(city, date.index = 1, method = "auto"){
     # retrieve url
     url <- city %>% get_full_info() %>% 
                 filter(`File Name` == "listings.csv") %>% 
-                arrange(-as.numeric(dmy)) %>% 
+                arrange(-as.numeric(ymd)) %>% 
                 pull(url) %>% 
                 as.character()
     
     # start downloading
     print("Downloading data...")
-    tryCatch(url[date.index] %>% download.file(destfile = paste0("Data/", city, ".csv"), method = method), finally = "Success")
+    print(url[date.index])
+    #tryCatch(url[date.index] %>% download.file(destfile = paste0("Data/", city, ".csv"), method = method), finally = "Success")
     
 }
