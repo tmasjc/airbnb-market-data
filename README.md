@@ -53,7 +53,7 @@ Content type 'application/csv' length 1389561 bytes (1.3 MB)
 downloaded 1.3 MB
 ```
 
-There is a command to view available cities.
+Use `list` instead of city name to view available cities.
 
 ``` bash
 # View all cities
@@ -73,10 +73,10 @@ There is a command to view available cities.
 [45] washington-dc  
 ```
 
-Download feature automatially fetches the latest data (of a city) available. If you prefer a particular snapshot, you can use `-m <city>` to list date indexes and specify particular `-i <index>` to download.
+The utility automatially fetches the latest data available (of a city). If you prefer a particular time snapshot, you may use `-m <city>` to list date indexes and specify particular `-i <index>` to download.
 
 ``` bash
-# First, see whats available
+# First, see what's available for Vienna
 ./getting_data.R list -m vienna
 
 |City   |Dates      |Index |
@@ -90,8 +90,8 @@ Download feature automatially fetches the latest data (of a city) available. If 
 |vienna |2017-03-08 |7     |
 ...
 
-# Then, you can specify index to download
-# i.e if you desire snapshot on 2017-03-08, specify 7
+# Then, you may specify index to download
+# i.e if you desire snapshot on 2017-03-08, choose 7
 ./getting_data.R vienna -i 7
 
 [1] "Downloading data..."
