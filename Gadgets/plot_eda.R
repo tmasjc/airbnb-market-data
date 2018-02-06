@@ -5,7 +5,7 @@ library(ggplot2)
 library(plotly)
 
 # load data
-berlin <- readRDS("Data/berlin.RDS")
+vienna <- readr::read_csv("Data/vienna.csv") %>% as.tibble()
 
 # create some options to choose from
 nb_list <- berlin$neighbourhood_group %>% unique()

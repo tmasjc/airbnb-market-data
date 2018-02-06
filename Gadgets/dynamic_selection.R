@@ -3,14 +3,14 @@ library(shiny)
 library(miniUI)
 library(ggplot2)
 
-airbnb_city <- function() {
+dynamic_select <- function() {
     
     # get what is in the data directory
-    city_list <- dir(path = "Data/") %>% gsub(pattern = "*\\.RDS$", replacement = "")
+    city_list <- dir(path = "Data/") %>% gsub(pattern = "*\\.csv$", replacement = "")
     
     # make path list of respective city RDS, and then read data
-    cities <- sapply(X = city_list, FUN = sprintf, fmt = "Data/%s.RDS") %>% 
-        lapply(FUN = readRDS) 
+    cities <- sapply(X = city_list, FUN = sprintf, fmt = "Data/%s.csv") %>% 
+        lapply(FUN = readr::read_csv) 
     
     # assign names to be aligned with input selector
     names(cities) <- toupper(city_list)

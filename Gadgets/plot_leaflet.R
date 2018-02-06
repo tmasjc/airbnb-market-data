@@ -6,7 +6,7 @@ library(miniUI)
 
 plot_leaflet <- function() {
     
-    vienna <- readRDS("Data/vienna.RDS")
+    vienna <- readr::read_csv("Data/vienna.csv") %>% as.tibble()
     
     # For dropdown choices
     nb <- unique(vienna$neighbourhood)

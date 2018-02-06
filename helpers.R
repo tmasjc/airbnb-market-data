@@ -137,7 +137,7 @@ download_data <- function(city, date.index = 1, method = "auto"){
     
     # start downloading
     print("Downloading data...")
-    print(url[date.index])
-    #tryCatch(url[date.index] %>% download.file(destfile = paste0("Data/", city, ".csv"), method = method), finally = "Success")
+    # print(url[date.index])
+    tryCatch(url[date.index] %>% download.file(destfile = paste0("Data/", city, ".csv"), method = method), finally = "Success")
     
 }
