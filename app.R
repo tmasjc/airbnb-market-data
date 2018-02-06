@@ -49,7 +49,7 @@ ui <- fillPage(
     
         # Lower half
         fluidPage(
-            h4("Hello World", style = "text-align: center;"),
+            uiOutput("h4"),
             sidebarLayout(
                 sidebarPanel(width = 2, 
                        selectInput("city", label = "Select A City", choices = c("", toupper(city_list))),
@@ -72,6 +72,12 @@ server <- function(input, output, session){
     selected_city <- reactive({
         req(input$city)
         cities[[input$city]]
+    })
+    
+    # Text for the main header
+    output$h4 <- renderUI({
+        text <- ifelse(isTruthy(input$city), input$city, "Select A City To Get Started.")
+        h4(paste("Hello,", text), style = "text-align: center;")
     })
     
     # Geography concentration goes here
