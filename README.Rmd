@@ -1,48 +1,54 @@
-Airbnb Market Data
-================
+---
+title: "Airbnb Market Data"
+output: github_document
+---
 
-    ## This README is generated from README.Rmd
+```
+## This README is generated from README.Rmd
+```
 
-This is a simple visualization inspired by [InsideAirbnb](http://insideairbnb.com/). Written in R, built on Shiny framework.
+This is a simple visualization inspired by [InsideAirbnb](http://insideairbnb.com/). Written in R, built on Shiny framework. 
 
-Demo can be found at <http://yhat.io/shiny/airbnb_market_data>
+Demo can be found at http://yhat.io/shiny/airbnb_market_data
 
 ![Demo.gif](demo.gif)
 
-------------------------------------------------------------------------
+----
 
-##### Motivation
+##### Motivation 
 
 This project aims to exercise
 
--   utilizing various `reactivity` features by `Shiny`
--   converting `Rscript` to a command line utility
--   shipping an `R`/`Shiny` data product in a `docker` container (TODO)
+- utilizing various ``reactivity`` features by ``Shiny``
+- converting ``Rscript`` to a command line utility
+- shipping an ``R``/``Shiny`` data product in a ``docker`` container (TODO)
 
 *Any constructive feedback, especially on how to do things in a more efficient manner is greatly appreciated.*
 
-------------------------------------------------------------------------
+----
 
 ##### How to Import Data?
 
-You can use either 2 ways to import data.
+You can use either 2 ways to import data. 
 
-1.  Use the command line helper utility - **getting\_data.R**
+1. Use the command line helper utility - **getting_data.R**
 
-        # Run on Terminal using bash
-        ./getting_data.R
+    ```
+    # Run on Terminal using bash
+    ./getting_data.R
+    ```
 
-2.  From [InsideAirbnb](http://insideairbnb.com/get-the-data.html)
+2. From [InsideAirbnb](http://insideairbnb.com/get-the-data.html)
 
     Navigate to your desire city section and download files "**listings.csv**" (the summary version).
-
-------------------------------------------------------------------------
+    
+----
 
 ##### Usage of Command Line Utility
 
-Execute `./getting_data.R <city>` to download desire <city> market data.
+Execute ``./getting_data.R <city>`` to download desire <city> market data.
 
-``` bash
+```bash
 # Cause Vienna waits for you - Billy Joel
 ./getting_data.R vienna
 
@@ -55,7 +61,7 @@ downloaded 1.3 MB
 
 There is a command to view available cities.
 
-``` bash
+```bash
 # View all cities
 ./getting_data.R list
 
@@ -73,9 +79,9 @@ There is a command to view available cities.
 [45] washington-dc  
 ```
 
-Download feature automatially fetches the latest data (of a city) available. If you prefer a particular snapshot, you can use `-m <city>` to list date indexes and specify particular `-i <index>` to download.
+Download feature automatially fetches the latest data (of a city) available. If you prefer a particular snapshot, you can use ``-m <city>`` to list date indexes and specify particular ``-i <index>`` to download.
 
-``` bash
+```bash
 # First, see whats available
 ./getting_data.R list -m vienna
 
@@ -103,4 +109,6 @@ downloaded 1.1 MB
 
 ##### Acknowledgments
 
-[Murray Cox](http://www.murraycox.com/) for the amazing work @[InsideAirbnb.com](http://insideairbnb.com/index.html) and his generosity in sharing its data.
+[Murray Cox](http://www.murraycox.com/) for the amazing work @[InsideAirbnb.com](http://insideairbnb.com/index.html) and his generosity in sharing its data. 
+
+
