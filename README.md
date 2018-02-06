@@ -27,14 +27,14 @@ This project aims to exercise
 
 You can use either 2 ways to import data.
 
-1.  Use the command line helper utility - **getting\_data.R**
+-   Use the command line tool, **"getting\_data.R"** on terminal
 
-        # Run on Terminal using bash
+        # Run on terminal using bash
         ./getting_data.R
 
-2.  From [InsideAirbnb](http://insideairbnb.com/get-the-data.html)
+-   OR directly from [InsideAirbnb](http://insideairbnb.com/get-the-data.html)
 
-    Navigate to your desire city section and download files "**listings.csv**" (the summary version).
+    Navigate to your desire city section and download files "**listings.csv**" (the summary version). Put your download into the *Data* folder.
 
 ------------------------------------------------------------------------
 
