@@ -13,8 +13,11 @@ names(cities) <- toupper(city_list)
 
 # Helper Function ---------------------------------------------------------
 
+# Set main color for room type
+room_cols <- brewer.pal(3, "Set1")
+
 # For Leaflet's markers color
-pal <- colorFactor(brewer.pal(3, "Set1"), domain = cities[[1]]$room_type %>% unique())
+pal <- colorFactor(room_cols, domain = cities[[1]]$room_type %>% unique())
 
 # Modify ggplot theme
 old <- theme_set(theme_light() + 
@@ -83,7 +86,7 @@ server <- function(input, output, session){
             # For resetting zoom
             addEasyButton(
                 easyButton("fa-arrows-alt", title = "Reset Zoom", 
-                           onClick = JS("function(btn, map){ map.setZoom(14); }"))
+                           onClick = JS("function(btn, map){ map.setZoom(11); }"))
             )
     })
     
@@ -147,9 +150,9 @@ server <- function(input, output, session){
     output$roomInBounds <- renderPrint({
         
         # Total count by room type
-        #with(bounded_area(), ftable("Room Type" = room_type))
-        #nrow(bounded_area())
-        input$area == ""
+        df <- bounded_area() %>% group_by(room_type) %>% summarise(n = n()) %>% as.data.frame(row.names = NULL)
+        colnames(df) <- c("Room Type", "Quantity")
+        df
             
         
     })
@@ -183,6 +186,8 @@ server <- function(input, output, session){
                 filter(price < (1.5 * IQR(price) + quantile(price, .75))) %>% 
                 ggplot(aes(price, fill = room_type, col = room_type, text = "")) +
                 geom_density(alpha = 0.6) + 
+                scale_color_manual(values = room_cols) +
+                scale_fill_manual(values = room_cols) +
                 labs(x = "Price", y = "Kernel Density Estimation")
             
             setProgress(1)
