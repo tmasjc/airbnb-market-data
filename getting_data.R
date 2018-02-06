@@ -1,4 +1,4 @@
-#!/usr/local/bin/Rscript --vanilla
+#!/usr/bin/env Rscript --vanilla
 
 source("helpers.R")
 
