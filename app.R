@@ -49,22 +49,23 @@ ui <- fillPage(
     # Theme selection
     theme = shinythemes::shinytheme("yeti"),
     
+    fluidPage(
         # Upper half
-        leafletOutput("map", height = '50%'),
+        leafletOutput("map", height = 400, width = "100%"),
         hr(),
-    
-        # Lower half
-        fluidPage(
-            uiOutput("h4"),
-            sidebarLayout(
-                sidebarPanel(width = 2, 
-                       selectInput("city", label = "Select A City", choices = c("", toupper(city_list))),
-                       selectInput("area", label = "Filter By Area", character(0)),
-                       verbatimTextOutput("roomInBounds")),
-                mainPanel(width = 10,
-                    column(6, plotlyOutput("price")),
-                    column (6, plotlyOutput("host"))
-                )
+        uiOutput("h4"),
+        fluidRow(
+            style = "max-height: 30vh; overflow-y: auto;",
+                # Lower half
+                column(width = 2,
+                             selectInput("city", label = "Select A City", choices = c("", toupper(city_list))),
+                             selectInput("area", label = "Filter By Area", character(0)),
+                             verbatimTextOutput("roomInBounds")),
+                column(width = 10,
+                          column(6, plotlyOutput("price")),
+                          column(6, plotlyOutput("host"))
+                ),
+            hr()
             )
         )
 )
@@ -230,6 +231,7 @@ server <- function(input, output, session){
                 labs(x = "# Listings", y = "# Hosts with y listings")    
             
             setProgress(1)
+            
         })
         
         ggplotly(p, tooltip = c("text"))
