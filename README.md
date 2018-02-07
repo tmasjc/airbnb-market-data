@@ -5,7 +5,7 @@ Airbnb Market Data
 
 This is a simple visualization inspired by [InsideAirbnb](http://insideairbnb.com/). Written in R, built on Shiny framework.
 
-Demo can be found at <http://yhat.io/shiny/airbnb_market_data>
+Demo can be found at <http://yhat.io/shiny/airbnb-market-data/>
 
 ![Demo.gif](demo.gif)
 
