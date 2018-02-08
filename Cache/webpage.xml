@@ -4806,42 +4806,84 @@
                 </tr></thead>
 <tbody>
 <tr class="">
-<td>08 April, 2017</td>
+<td>17 January, 2018</td>
                 <td>Madrid</td>
-                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2017-04-08/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
+                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2018-01-17/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
                 <td>Detailed Listings data for Madrid</td>
             </tr>
 <tr class="">
-<td>08 April, 2017</td>
+<td>17 January, 2018</td>
                 <td>Madrid</td>
-                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2017-04-08/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
+                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2018-01-17/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
                 <td>Detailed Calendar Data for listings in Madrid</td>
             </tr>
 <tr class="">
-<td>08 April, 2017</td>
+<td>17 January, 2018</td>
                 <td>Madrid</td>
-                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2017-04-08/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
+                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2018-01-17/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
                 <td>Detailed Review Data for listings in Madrid</td>
             </tr>
 <tr class="">
-<td>08 April, 2017</td>
+<td>17 January, 2018</td>
                 <td>Madrid</td>
-                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2017-04-08/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
+                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2018-01-17/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
                 <td>Summary information and metrics for listings in Madrid (good for visualisations).</td>
             </tr>
 <tr class="">
-<td>08 April, 2017</td>
+<td>17 January, 2018</td>
                 <td>Madrid</td>
-                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2017-04-08/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
+                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2018-01-17/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
                 <td>Summary Review data and Listing ID (to facilitate time based analytics and visualisations linked to a listing).</td>
             </tr>
 <tr class="">
 <td>N/A</td>
                 <td>Madrid</td>
-                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2017-04-08/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
+                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2018-01-17/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
                 <td>Neighbourhood list for geo filter. Sourced from city or open source GIS files.</td>
             </tr>
 <tr class="">
+<td>N/A</td>
+                <td>Madrid</td>
+                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2018-01-17/visualisations/neighbourhoods.geojson" onclick="var that=this;ga('send','event', 'download','geojson',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.geojson</a></td>
+                <td>GeoJSON file of neighbourhoods of the city.</td>
+            </tr>
+<tr class="archived">
+<td>08 April, 2017</td>
+                <td>Madrid</td>
+                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2017-04-08/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
+                <td>Detailed Listings data for Madrid</td>
+            </tr>
+<tr class="archived">
+<td>08 April, 2017</td>
+                <td>Madrid</td>
+                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2017-04-08/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
+                <td>Detailed Calendar Data for listings in Madrid</td>
+            </tr>
+<tr class="archived">
+<td>08 April, 2017</td>
+                <td>Madrid</td>
+                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2017-04-08/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
+                <td>Detailed Review Data for listings in Madrid</td>
+            </tr>
+<tr class="archived">
+<td>08 April, 2017</td>
+                <td>Madrid</td>
+                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2017-04-08/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
+                <td>Summary information and metrics for listings in Madrid (good for visualisations).</td>
+            </tr>
+<tr class="archived">
+<td>08 April, 2017</td>
+                <td>Madrid</td>
+                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2017-04-08/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
+                <td>Summary Review data and Listing ID (to facilitate time based analytics and visualisations linked to a listing).</td>
+            </tr>
+<tr class="archived">
+<td>N/A</td>
+                <td>Madrid</td>
+                <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2017-04-08/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
+                <td>Neighbourhood list for geo filter. Sourced from city or open source GIS files.</td>
+            </tr>
+<tr class="archived">
 <td>N/A</td>
                 <td>Madrid</td>
                 <td><a href="http://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2017-04-08/visualisations/neighbourhoods.geojson" onclick="var that=this;ga('send','event', 'download','geojson',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.geojson</a></td>
@@ -5020,7 +5062,7 @@
 <a class="showArchivedData" data-city="madrid">show</a> archived data
 
                 
-        <h2>Malaga, Andalucía, Spain</h2>
+        <h2>Malaga, AndalucÃ­a, Spain</h2>
         <p>See <a href="malaga/">Malaga data visually here</a>.</p>
         <table class="table table-hover table-striped malaga">
 <thead><tr>
@@ -5035,43 +5077,43 @@
 <tr class="">
 <td>25 November, 2017</td>
                 <td>Malaga</td>
-                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%ADa/malaga/2017-11-25/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
+                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%83%C2%ADa/malaga/2017-11-25/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
                 <td>Detailed Listings data for Malaga</td>
             </tr>
 <tr class="">
 <td>25 November, 2017</td>
                 <td>Malaga</td>
-                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%ADa/malaga/2017-11-25/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
+                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%83%C2%ADa/malaga/2017-11-25/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
                 <td>Detailed Calendar Data for listings in Malaga</td>
             </tr>
 <tr class="">
 <td>25 November, 2017</td>
                 <td>Malaga</td>
-                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%ADa/malaga/2017-11-25/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
+                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%83%C2%ADa/malaga/2017-11-25/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
                 <td>Detailed Review Data for listings in Malaga</td>
             </tr>
 <tr class="">
 <td>25 November, 2017</td>
                 <td>Malaga</td>
-                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%ADa/malaga/2017-11-25/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
+                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%83%C2%ADa/malaga/2017-11-25/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
                 <td>Summary information and metrics for listings in Malaga (good for visualisations).</td>
             </tr>
 <tr class="">
 <td>25 November, 2017</td>
                 <td>Malaga</td>
-                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%ADa/malaga/2017-11-25/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
+                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%83%C2%ADa/malaga/2017-11-25/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
                 <td>Summary Review data and Listing ID (to facilitate time based analytics and visualisations linked to a listing).</td>
             </tr>
 <tr class="">
 <td>N/A</td>
                 <td>Malaga</td>
-                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%ADa/malaga/2017-11-25/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
+                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%83%C2%ADa/malaga/2017-11-25/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
                 <td>Neighbourhood list for geo filter. Sourced from city or open source GIS files.</td>
             </tr>
 <tr class="">
 <td>N/A</td>
                 <td>Malaga</td>
-                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%ADa/malaga/2017-11-25/visualisations/neighbourhoods.geojson" onclick="var that=this;ga('send','event', 'download','geojson',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.geojson</a></td>
+                <td><a href="http://data.insideairbnb.com/spain/andaluc%C3%83%C2%ADa/malaga/2017-11-25/visualisations/neighbourhoods.geojson" onclick="var that=this;ga('send','event', 'download','geojson',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.geojson</a></td>
                 <td>GeoJSON file of neighbourhoods of the city.</td>
             </tr>
 </tbody>
@@ -7582,48 +7624,6 @@
                 <td>GeoJSON file of neighbourhoods of the city.</td>
             </tr>
 <tr class="archived">
-<td>01 April, 2015</td>
-                <td>New York City</td>
-                <td><a href="http://data.insideairbnb.com/united-states/ny/new-york-city/2015-04-01/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
-                <td>Detailed Listings data for New York City</td>
-            </tr>
-<tr class="archived">
-<td>01 April, 2015</td>
-                <td>New York City</td>
-                <td><a href="http://data.insideairbnb.com/united-states/ny/new-york-city/2015-04-01/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
-                <td>Detailed Calendar Data for listings in New York City</td>
-            </tr>
-<tr class="archived">
-<td>01 April, 2015</td>
-                <td>New York City</td>
-                <td><a href="http://data.insideairbnb.com/united-states/ny/new-york-city/2015-04-01/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
-                <td>Detailed Review Data for listings in New York City</td>
-            </tr>
-<tr class="archived">
-<td>01 April, 2015</td>
-                <td>New York City</td>
-                <td><a href="http://data.insideairbnb.com/united-states/ny/new-york-city/2015-04-01/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
-                <td>Summary information and metrics for listings in New York City (good for visualisations).</td>
-            </tr>
-<tr class="archived">
-<td>01 April, 2015</td>
-                <td>New York City</td>
-                <td><a href="http://data.insideairbnb.com/united-states/ny/new-york-city/2015-04-01/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
-                <td>Summary Review data and Listing ID (to facilitate time based analytics and visualisations linked to a listing).</td>
-            </tr>
-<tr class="archived">
-<td>N/A</td>
-                <td>New York City</td>
-                <td><a href="http://data.insideairbnb.com/united-states/ny/new-york-city/2015-04-01/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
-                <td>Neighbourhood list for geo filter. Sourced from city or open source GIS files.</td>
-            </tr>
-<tr class="archived">
-<td>N/A</td>
-                <td>New York City</td>
-                <td><a href="http://data.insideairbnb.com/united-states/ny/new-york-city/2015-04-01/visualisations/neighbourhoods.geojson" onclick="var that=this;ga('send','event', 'download','geojson',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.geojson</a></td>
-                <td>GeoJSON file of neighbourhoods of the city.</td>
-            </tr>
-<tr class="archived">
 <td>01 March, 2015</td>
                 <td>New York City</td>
                 <td><a href="http://data.insideairbnb.com/united-states/ny/new-york-city/2015-03-01/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
@@ -7869,7 +7869,7 @@
 <a class="showArchivedData" data-city="oakland">show</a> archived data
 
                 
-        <h2>Paris, Île-de-France, France</h2>
+        <h2>Paris, Ãle-de-France, France</h2>
         <p>See <a href="paris/">Paris data visually here</a>.</p>
         <table class="table table-hover table-striped paris">
 <thead><tr>
@@ -10070,42 +10070,210 @@
                 </tr></thead>
 <tbody>
 <tr class="">
-<td>03 April, 2017</td>
+<td>13 January, 2018</td>
                 <td>Sydney</td>
-                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-04-03/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2018-01-13/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
                 <td>Detailed Listings data for Sydney</td>
             </tr>
 <tr class="">
-<td>03 April, 2017</td>
+<td>13 January, 2018</td>
                 <td>Sydney</td>
-                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-04-03/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2018-01-13/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
                 <td>Detailed Calendar Data for listings in Sydney</td>
             </tr>
 <tr class="">
-<td>03 April, 2017</td>
+<td>13 January, 2018</td>
                 <td>Sydney</td>
-                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-04-03/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2018-01-13/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
                 <td>Detailed Review Data for listings in Sydney</td>
             </tr>
 <tr class="">
-<td>03 April, 2017</td>
+<td>13 January, 2018</td>
                 <td>Sydney</td>
-                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-04-03/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2018-01-13/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
                 <td>Summary information and metrics for listings in Sydney (good for visualisations).</td>
             </tr>
 <tr class="">
-<td>03 April, 2017</td>
+<td>13 January, 2018</td>
                 <td>Sydney</td>
-                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-04-03/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2018-01-13/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
                 <td>Summary Review data and Listing ID (to facilitate time based analytics and visualisations linked to a listing).</td>
             </tr>
 <tr class="">
 <td>N/A</td>
                 <td>Sydney</td>
-                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-04-03/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2018-01-13/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
                 <td>Neighbourhood list for geo filter. Sourced from city or open source GIS files.</td>
             </tr>
 <tr class="">
+<td>N/A</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2018-01-13/visualisations/neighbourhoods.geojson" onclick="var that=this;ga('send','event', 'download','geojson',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.geojson</a></td>
+                <td>GeoJSON file of neighbourhoods of the city.</td>
+            </tr>
+<tr class="archived">
+<td>05 December, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-12-05/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
+                <td>Detailed Listings data for Sydney</td>
+            </tr>
+<tr class="archived">
+<td>05 December, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-12-05/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
+                <td>Detailed Calendar Data for listings in Sydney</td>
+            </tr>
+<tr class="archived">
+<td>05 December, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-12-05/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
+                <td>Detailed Review Data for listings in Sydney</td>
+            </tr>
+<tr class="archived">
+<td>05 December, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-12-05/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
+                <td>Summary information and metrics for listings in Sydney (good for visualisations).</td>
+            </tr>
+<tr class="archived">
+<td>05 December, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-12-05/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
+                <td>Summary Review data and Listing ID (to facilitate time based analytics and visualisations linked to a listing).</td>
+            </tr>
+<tr class="archived">
+<td>N/A</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-12-05/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
+                <td>Neighbourhood list for geo filter. Sourced from city or open source GIS files.</td>
+            </tr>
+<tr class="archived">
+<td>N/A</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-12-05/visualisations/neighbourhoods.geojson" onclick="var that=this;ga('send','event', 'download','geojson',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.geojson</a></td>
+                <td>GeoJSON file of neighbourhoods of the city.</td>
+            </tr>
+<tr class="archived">
+<td>07 November, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-11-07/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
+                <td>Detailed Listings data for Sydney</td>
+            </tr>
+<tr class="archived">
+<td>07 November, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-11-07/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
+                <td>Detailed Calendar Data for listings in Sydney</td>
+            </tr>
+<tr class="archived">
+<td>07 November, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-11-07/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
+                <td>Detailed Review Data for listings in Sydney</td>
+            </tr>
+<tr class="archived">
+<td>07 November, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-11-07/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
+                <td>Summary information and metrics for listings in Sydney (good for visualisations).</td>
+            </tr>
+<tr class="archived">
+<td>07 November, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-11-07/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
+                <td>Summary Review data and Listing ID (to facilitate time based analytics and visualisations linked to a listing).</td>
+            </tr>
+<tr class="archived">
+<td>N/A</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-11-07/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
+                <td>Neighbourhood list for geo filter. Sourced from city or open source GIS files.</td>
+            </tr>
+<tr class="archived">
+<td>N/A</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-11-07/visualisations/neighbourhoods.geojson" onclick="var that=this;ga('send','event', 'download','geojson',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.geojson</a></td>
+                <td>GeoJSON file of neighbourhoods of the city.</td>
+            </tr>
+<tr class="archived">
+<td>03 October, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-10-03/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
+                <td>Detailed Listings data for Sydney</td>
+            </tr>
+<tr class="archived">
+<td>03 October, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-10-03/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
+                <td>Detailed Calendar Data for listings in Sydney</td>
+            </tr>
+<tr class="archived">
+<td>03 October, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-10-03/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
+                <td>Detailed Review Data for listings in Sydney</td>
+            </tr>
+<tr class="archived">
+<td>03 October, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-10-03/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
+                <td>Summary information and metrics for listings in Sydney (good for visualisations).</td>
+            </tr>
+<tr class="archived">
+<td>03 October, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-10-03/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
+                <td>Summary Review data and Listing ID (to facilitate time based analytics and visualisations linked to a listing).</td>
+            </tr>
+<tr class="archived">
+<td>N/A</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-10-03/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
+                <td>Neighbourhood list for geo filter. Sourced from city or open source GIS files.</td>
+            </tr>
+<tr class="archived">
+<td>N/A</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-10-03/visualisations/neighbourhoods.geojson" onclick="var that=this;ga('send','event', 'download','geojson',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.geojson</a></td>
+                <td>GeoJSON file of neighbourhoods of the city.</td>
+            </tr>
+<tr class="archived">
+<td>03 April, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-04-03/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
+                <td>Detailed Listings data for Sydney</td>
+            </tr>
+<tr class="archived">
+<td>03 April, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-04-03/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
+                <td>Detailed Calendar Data for listings in Sydney</td>
+            </tr>
+<tr class="archived">
+<td>03 April, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-04-03/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
+                <td>Detailed Review Data for listings in Sydney</td>
+            </tr>
+<tr class="archived">
+<td>03 April, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-04-03/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
+                <td>Summary information and metrics for listings in Sydney (good for visualisations).</td>
+            </tr>
+<tr class="archived">
+<td>03 April, 2017</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-04-03/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
+                <td>Summary Review data and Listing ID (to facilitate time based analytics and visualisations linked to a listing).</td>
+            </tr>
+<tr class="archived">
+<td>N/A</td>
+                <td>Sydney</td>
+                <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-04-03/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
+                <td>Neighbourhood list for geo filter. Sourced from city or open source GIS files.</td>
+            </tr>
+<tr class="archived">
 <td>N/A</td>
                 <td>Sydney</td>
                 <td><a href="http://data.insideairbnb.com/australia/nsw/sydney/2017-04-03/visualisations/neighbourhoods.geojson" onclick="var that=this;ga('send','event', 'download','geojson',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.geojson</a></td>
@@ -10721,7 +10889,7 @@
 <a class="showArchivedData" data-city="toronto">show</a> archived data
 
                 
-        <h2>Trentino, Trentino-Alto Adige/Südtirol, Italy</h2>
+        <h2>Trentino, Trentino-Alto Adige/SÃ¼dtirol, Italy</h2>
         <p>See <a href="trentino/">Trentino data visually here</a>.</p>
         <table class="table table-hover table-striped trentino">
 <thead><tr>
@@ -10736,43 +10904,43 @@
 <tr class="">
 <td>12 October, 2015</td>
                 <td>Trentino</td>
-                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%BCdtirol/trentino/2015-10-12/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
+                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%83%C2%BCdtirol/trentino/2015-10-12/data/listings.csv.gz" onclick="var that=this;ga('send','event', 'download','listings',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv.gz</a></td>
                 <td>Detailed Listings data for Trentino</td>
             </tr>
 <tr class="">
 <td>12 October, 2015</td>
                 <td>Trentino</td>
-                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%BCdtirol/trentino/2015-10-12/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
+                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%83%C2%BCdtirol/trentino/2015-10-12/data/calendar.csv.gz" onclick="var that=this;ga('send','event', 'download','calendar',this.href);setTimeout(function(){location.href=that.href;},200);return false;">calendar.csv.gz</a></td>
                 <td>Detailed Calendar Data for listings in Trentino</td>
             </tr>
 <tr class="">
 <td>12 October, 2015</td>
                 <td>Trentino</td>
-                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%BCdtirol/trentino/2015-10-12/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
+                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%83%C2%BCdtirol/trentino/2015-10-12/data/reviews.csv.gz" onclick="var that=this;ga('send','event', 'download','reviews',this.href);setTimeout(function(){location.href=that.href;},200);return false;">reviews.csv.gz</a></td>
                 <td>Detailed Review Data for listings in Trentino</td>
             </tr>
 <tr class="">
 <td>12 October, 2015</td>
                 <td>Trentino</td>
-                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%BCdtirol/trentino/2015-10-12/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
+                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%83%C2%BCdtirol/trentino/2015-10-12/visualisations/listings.csv" onclick="var that=this;ga('send','event', 'download','listings_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;">listings.csv</a></td>
                 <td>Summary information and metrics for listings in Trentino (good for visualisations).</td>
             </tr>
 <tr class="">
 <td>12 October, 2015</td>
                 <td>Trentino</td>
-                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%BCdtirol/trentino/2015-10-12/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
+                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%83%C2%BCdtirol/trentino/2015-10-12/visualisations/reviews.csv" onclick="var that=this;ga('send','event', 'download','reviews_visualisation',this.href);setTimeout(function(){location.href=that.href;},200);return false;"> reviews.csv</a></td>
                 <td>Summary Review data and Listing ID (to facilitate time based analytics and visualisations linked to a listing).</td>
             </tr>
 <tr class="">
 <td>N/A</td>
                 <td>Trentino</td>
-                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%BCdtirol/trentino/2015-10-12/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
+                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%83%C2%BCdtirol/trentino/2015-10-12/visualisations/neighbourhoods.csv" onclick="var that=this;ga('send','event', 'download','neighbourhoods',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.csv</a></td>
                 <td>Neighbourhood list for geo filter. Sourced from city or open source GIS files.</td>
             </tr>
 <tr class="">
 <td>N/A</td>
                 <td>Trentino</td>
-                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%BCdtirol/trentino/2015-10-12/visualisations/neighbourhoods.geojson" onclick="var that=this;ga('send','event', 'download','geojson',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.geojson</a></td>
+                <td><a href="http://data.insideairbnb.com/italy/trentino-alto-adige-s%C3%83%C2%BCdtirol/trentino/2015-10-12/visualisations/neighbourhoods.geojson" onclick="var that=this;ga('send','event', 'download','geojson',this.href);setTimeout(function(){location.href=that.href;},200);return false;">neighbourhoods.geojson</a></td>
                 <td>GeoJSON file of neighbourhoods of the city.</td>
             </tr>
 </tbody>
@@ -12201,7 +12369,6 @@
 </tbody>
 </table>
 <a class="showArchivedData" data-city="washington-dc">show</a> archived data
-
 
 <p>If you have any questions, or would like to request data you don't see here, please contact <a href="mailto:murray@murraycox.com">murray@murraycox.com</a>. <b>Please<b> let me know who you are, your interest in the data and Airbnb. I prioritise requests based on their alignment with the project's mission - to promote debate about Airbnb's impact on residential housing. I will not respond to requests for data from Airbnb hosts.</b></b></p>
 

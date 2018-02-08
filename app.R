@@ -10,10 +10,10 @@ library(plotly)
 # Load Data ---------------------------------------------------------------
 
 # Get what is in the 'Data' directory
-city_list <- list.files(path = "Data/") %>% gsub(pattern = "*\\.csv$", replacement = "")
+city_list <- list.files(path = "Data/") %>% grep(pattern = "*\\.csv$", value = TRUE) %>% gsub(pattern = "*\\.csv$", replacement = "")
 
 # Combine all data frames into a list
-cities <- list.files(path = "Data", full.names = TRUE) %>% lapply(FUN = read.csv, stringsAsFactors = FALSE)
+cities <- list.files(path = "Data", pattern = "\\.csv$", full.names = TRUE) %>% lapply(FUN = read.csv, stringsAsFactors = FALSE)
 names(cities) <- toupper(city_list)
 
 
@@ -38,6 +38,9 @@ ui <- fillPage(
     # Custom CSS goes here
     tags$head(
         tags$style(HTML("
+                body {
+                    overflow: auto;
+                }
                 .leaflet-control.legend {
                     font-family: 'Futura', mono, sans;
                     width: 12em;
@@ -55,7 +58,6 @@ ui <- fillPage(
         hr(),
         uiOutput("h4"),
         fluidRow(
-            style = "max-height: 30vh; overflow-y: auto;",
                 # Lower half
                 column(width = 2,
                              selectInput("city", label = "Select A City", choices = c("", toupper(city_list))),
@@ -64,9 +66,10 @@ ui <- fillPage(
                 column(width = 10,
                           column(6, plotlyOutput("price")),
                           column(6, plotlyOutput("host"))
-                ),
-            hr()
-            )
+                )
+            ),
+        hr(),
+        span(icon("github"), a("Source Code", href = "https://github.com/tmasjc/Airbnb_Market_Data"))
         )
 )
 

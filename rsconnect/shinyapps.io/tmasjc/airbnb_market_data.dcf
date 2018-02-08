@@ -5,6 +5,6 @@ account: tmasjc
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 274381
-bundleId: 1211794
+bundleId: 1213148
 url: https://tmasjc.shinyapps.io/airbnb_market_data/
-when: 1518008309.86383
+when: 1518070572.17331
