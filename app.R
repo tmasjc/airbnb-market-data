@@ -1,19 +1,22 @@
 # required packages                                                                                  
-library(ggplot2)                                                                                     
-library(dplyr)                                                                                       
-library(shiny)                                                                                       
+library(tidyverse)
+library(shiny)                                                                                    
 library(shinythemes)                                                                                 
-library(leaflet)                                                                                     
 library(RColorBrewer)                                                                                
+library(leaflet)                                                                                 
 library(plotly)
 
 # Load Data ---------------------------------------------------------------
 
 # Get what is in the 'Data' directory
-city_list <- list.files(path = "Data/") %>% grep(pattern = "*\\.csv$", value = TRUE) %>% gsub(pattern = "*\\.csv$", replacement = "")
+city_list <- list.files(path = "Data/") %>% 
+    grep(pattern = "*\\.csv$", value = TRUE) %>% 
+    gsub(pattern = "*\\.csv$", replacement = "")
 
 # Combine all data frames into a list
-cities <- list.files(path = "Data", pattern = "\\.csv$", full.names = TRUE) %>% lapply(FUN = read.csv, stringsAsFactors = FALSE)
+cities <- list.files(path = "Data", pattern = "\\.csv$", full.names = TRUE) %>% 
+    lapply(FUN = read.csv, stringsAsFactors = FALSE)
+# Assign names
 names(cities) <- toupper(city_list)
 
 
@@ -28,8 +31,9 @@ pal <- colorFactor(room_cols, domain = cities[[1]]$room_type %>% unique())
 # Modify ggplot theme
 old <- theme_set(theme_light() + 
                      theme(legend.position = "none", 
-                           axis.title = element_text(family = "mono"),
-                           axis.text = element_text(colour = "darkgray")))
+                           axis.title = element_text(family = "Menlo", colour = "navyblue"),
+                           axis.text = element_text(family = "Menlo")
+                           ))
 
 # UI ----------------------------------------------------------------------
 
@@ -97,8 +101,12 @@ server <- function(input, output, session){
         selected_city() %>% 
             leaflet() %>% 
             addProviderTiles(providers$CartoDB.Positron) %>% 
-            fitBounds(lng1 = ~min(longitude), lat1 = ~min(latitude), lng2 = ~max(longitude), lat2 = ~max(latitude)) %>% 
-            addLegend("bottomleft", pal = pal, values = ~room_type, title = "Room Type") %>% 
+            # customise viewport to fit
+            fitBounds(lng1 = ~min(longitude), 
+                      lat1 = ~min(latitude), 
+                      lng2 = ~max(longitude), 
+                      lat2 = ~max(latitude)) %>% 
+            addLegend("bottomleft", pal = pal, values = ~ room_type, title = "Room Type") %>% 
             # For resetting zoom
             addEasyButton(
                 easyButton("fa-arrows-alt", title = "Reset Zoom", 
@@ -123,10 +131,10 @@ server <- function(input, output, session){
     
     # A subset of city data frame based on selected area
     area_df <- reactive({
-        
         req(input$area)
-        
-        selected_city() %>% filter(neighbourhood == input$area | neighbourhood_group == input$area)
+        # depends on data available
+        selected_city() %>% filter(neighbourhood == input$area |
+                                       neighbourhood_group == input$area)
         
     })
     
@@ -149,7 +157,11 @@ server <- function(input, output, session){
         lngRng <- range(bounds$east, bounds$west)
         
         # Filter area given boundary
-        subset(area_df(), latitude >= latRng[1] & latitude <= latRng[2] & longitude >= lngRng[1] & longitude <= lngRng[2])
+        subset(area_df(), 
+               latitude >= latRng[1] & 
+                   latitude <= latRng[2] & 
+                   longitude >= lngRng[1] & 
+                   longitude <= lngRng[2])
         
     })
     
@@ -157,20 +169,26 @@ server <- function(input, output, session){
     observeEvent(input$area, {
         leafletProxy("map", data = area_df()) %>% 
             clearMarkers() %>% 
-            addCircleMarkers(lng = ~longitude, lat = ~latitude, color = ~pal(room_type), radius = 5, stroke = FALSE, fillOpacity = 0.5) %>% 
+            addCircleMarkers(lng = ~longitude, 
+                             lat = ~latitude, 
+                             color = ~pal(room_type), 
+                             radius = 5, 
+                             stroke = FALSE, 
+                             fillOpacity = 0.5) %>% 
             # Fit bounding box based on neighbourhood
-            fitBounds(lng1 = bounds()$lng[1], lng2 = bounds()$lng[2], lat1 = bounds()$lat[1], lat2 = bounds()$lat[2])
+            fitBounds(lng1 = bounds()$lng[1], 
+                      lng2 = bounds()$lng[2], 
+                      lat1 = bounds()$lat[1], 
+                      lat2 = bounds()$lat[2])
     })
     
     # Calculate total of respective room type (within bounding box)
     output$roomInBounds <- renderPrint({
-        
         # Total count by room type
         df <- bounded_area() %>% group_by(room_type) %>% summarise(n = n()) %>% as.data.frame(row.names = NULL)
         colnames(df) <- c("Room Type", "Quantity")
         df
             
-        
     })
     
     
