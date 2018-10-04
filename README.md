@@ -90,6 +90,30 @@ Content type 'application/csv' length 1140895 bytes (1.1 MB)
 downloaded 1.1 MB
 ```
 
+Deployment
+----------
+
+This Shiny app is shipped with Docker, built on [rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse/) image.
+
+``` bash
+# from this repo
+git clone git@github.com:tmasjc/Airbnb_Market_Data.git
+
+# move inside directory
+cd Airbnb_Market_Data
+
+# name your image
+# it may take a while to build
+docker build -t airbnb_market_data .
+
+# start container
+docker run -dp 3838:3838 airbnb_market_data
+
+## You are set. Go to localhost:3838/airbnb_market_data to view application. 
+```
+
+Or you can simply deploy it to Shiny server as per usual.
+
 Acknowledgments
 ---------------
 
