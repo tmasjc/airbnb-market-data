@@ -1,4 +1,8 @@
 #!/usr/bin/env Rscript --vanilla
+library(magrittr)
+library(methods)
+library(argparser)
+library(knitr)
 
 # Set up new environment
 e <- new.env()
@@ -145,23 +149,18 @@ download_data <- function(city, date.index = 1, method = "auto"){
 
 # Convert to Command Line Utility -----------------------------------------
 
-library(magrittr)
-library(methods)
-library(argparser)
-library(knitr)
-
 options(knitr.table.format = "markdown")
 
-p <- arg_parser(description = "Getting Airbnb Market Data")
+p <- arg_parser(description = "Download CSV data")
 
 # Positional argument
-p <- add_argument(p, "target", help = "a named city (e.g. vienna) to download or 'list' to get available cities")
+p <- add_argument(p, "target", help = "city name (e.g. vienna) or 'list' to get available cities")
 
 # Optional argument
-argv <- add_argument(p, "--more", help = "display full info of a city") %>% 
+argv <- add_argument(p, "--snapshot", help = "list snapshots in a table format") %>% 
     # p <- add_argument(p, "--short", help = "display short list", flag = TRUE) %>% 
     add_argument("--long", help = "display list in long format (city full name)", flag = TRUE) %>% 
-    add_argument("--index", help = "select by date index", default = 1) %>% 
+    add_argument("--index", help = "select by specifying date index", default = 1) %>% 
     parse_args()
 
 
@@ -178,8 +177,8 @@ if(as.character(argv$target) == "list"){
         get_metadata()
     }
     
-    if(!is.na(argv$more)){
-        get_available_date(argv$more) %>% knitr::kable(col.names = c("City", "Dates", "Index"))
+    if(!is.na(argv$snapshot)){
+        get_available_date(argv$snapshot) %>% knitr::kable(col.names = c("City", "Dates", "Index"))
     }else{
         if(argv$long){
             e$city_full %>% knitr::kable(col.names = c("Cities"))
