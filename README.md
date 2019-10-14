@@ -3,27 +3,28 @@ Airbnb Market Data
 
     ## This README is generated from README.Rmd
 
-This is a simple visualization inspired by [InsideAirbnb](http://insideairbnb.com/). Written in R, built on [Shiny](https://shiny.rstudio.com/) framework.
+This is a simple visualization inspired by
+[InsideAirbnb](http://insideairbnb.com/). Written in R, built on
+[Shiny](https://shiny.rstudio.com/) framework.
 
 Demo can be found at - <https://tmasjc.shinyapps.io/airbnb_market_data/>
 
 ![Demo.gif](demo.gif)
 
-Motivation
-----------
+## Motivation
 
 This project aims to demonstrate
 
--   reactivity of Shiny framework
--   converting Rscript to a command line utility
--   shipping Shiny data product with Docker
+  - reactivity of Shiny framework
+  - converting Rscript to a command line utility
+  - shipping Shiny data product with Docker
 
 Any constructive feedback is greatly appreciated.
 
-Download Data
--------------
+## Download Data
 
-This project ships with 2 cities data (Berlin and Vienna). You may use the command line tool, `download_csv.R` to import more data.
+This project ships with 2 cities data (Berlin and Vienna). You may use
+the command line tool, `download_csv.R` to import more data.
 
 ``` bash
 # Make sure it is executable
@@ -32,10 +33,12 @@ chmod +x download_csv.R
 ./download_csv.R Rome
 ```
 
-Of course, you can also download the data manually from **[InsideAirbnb](http://insideairbnb.com/get-the-data.html)**. Navigate to your desire city section and download file named "listings.csv" (the summary version). Put your download into the *Data/* folder.
+Of course, you can also download the data manually from
+**[InsideAirbnb](http://insideairbnb.com/get-the-data.html)**. Navigate
+to your desire city section and download file named “listings.csv” (the
+summary version). Put your download into the *Data/* folder.
 
-Usage of Command Line Tool
---------------------------
+## Usage of Command Line Tool
 
 Execute `./download_csv.R {city}` to download desire {city} market data.
 
@@ -62,7 +65,9 @@ Use `list` instead of a city name to view all available cities.
  ...
 ```
 
-The utility automatically fetches the latest data available. If you prefer a particular snapshot, you may use `-s {city}` to list date indexes and specify particular `-i <index>` to download.
+The utility automatically fetches the latest data available. If you
+prefer a particular snapshot, you may use `-s {city}` to list date
+indexes and specify particular `-i <index>` to download.
 
 ``` bash
 # First, see what's available for Vienna
@@ -90,17 +95,17 @@ Content type 'application/csv' length 1140895 bytes (1.1 MB)
 downloaded 1.1 MB
 ```
 
-Deployment
-----------
+## Deployment
 
-This Shiny app is shipped with Docker, built on [rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse/) image.
+This Shiny app is shipped with Docker, built on
+[rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse/) image.
 
 ``` bash
 # from this repo
-git clone git@github.com:tmasjc/Airbnb_Market_Data.git
+git clone git@github.com:tmasjc/airbnb-market-data.git
 
 # move inside directory
-cd Airbnb_Market_Data
+cd airbnb-market-data
 
 # name your image
 # it may take a while to build
@@ -114,7 +119,8 @@ docker run -dp 3838:3838 airbnb_market_data
 
 Or you can simply deploy it to Shiny server as per usual.
 
-Acknowledgments
----------------
+## Acknowledgments
 
-[Murray Cox](http://www.murraycox.com/) for the amazing work at [InsideAirbnb.com](http://insideairbnb.com/index.html) and his generosity in sharing these data.
+[Murray Cox](http://www.murraycox.com/) for the amazing work at
+[InsideAirbnb.com](http://insideairbnb.com/index.html) and his
+generosity in sharing these data.

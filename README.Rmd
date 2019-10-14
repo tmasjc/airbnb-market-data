@@ -98,10 +98,10 @@ This Shiny app is shipped with Docker, built on [rocker/tidyverse](https://hub.d
 
 ```bash
 # from this repo
-git clone git@github.com:tmasjc/Airbnb_Market_Data.git
+git clone git@github.com:tmasjc/airbnb-market-data.git
 
 # move inside directory
-cd Airbnb_Market_Data
+cd airbnb-market-data
 
 # name your image
 # it may take a while to build
